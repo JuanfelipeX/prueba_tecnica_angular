@@ -10,6 +10,8 @@ import { IniciarSesionService } from 'src/app/services/iniciar-sesion/iniciar-se
 export class IniciarSesionComponent implements OnInit {
   formulario: any = {};
 
+  formularioUserByCorreo: any = [];
+
   constructor(
     private iniciarSesionService: IniciarSesionService,
     private router: Router
@@ -17,6 +19,53 @@ export class IniciarSesionComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  /*
+  ************************************************
+  *          METODO 1 PARA HACER LOGIN           *
+  ************************************************
+  */
+  getUsuarioByCorreo() {
+    this.iniciarSesionService
+      .obtenerUsuarioCorreo(this.formulario.email)
+      .subscribe({
+        next: (data) => {
+          this.formularioUserByCorreo = data.Usuario;
+        },
+        error: (err) => { },
+      });
+  }
+
+  iniciarSesionPorCorreo() {
+    this.getUsuarioByCorreo();
+
+    setTimeout(() => {
+      if (this.formularioUserByCorreo == undefined) {
+        console.log('NO paso');
+      } else if (
+        this.formulario.email == this.formularioUserByCorreo.email &&
+        this.formulario.contrasena == this.formularioUserByCorreo.contrasena
+      ) {
+        console.log('Paso');
+        localStorage.setItem(
+          'contrasena',
+          this.formularioUserByCorreo.contrasena
+        );
+        setTimeout(() => {
+          this.router.navigateByUrl('pedido');
+        }, 500);
+      } else if (
+        this.formulario.contrasena != this.formularioUserByCorreo.contrasena
+      ) {
+        console.log('Contrasena incorrecta');
+      }
+    }, 500);
+  }
+
+  /*
+  ************************************************
+  *          METODO 2 PARA HACER LOGIN           *
+  ************************************************
+  */
   login() {
     this.iniciarSesionService.login(this.formulario).subscribe(
       (response) => {
