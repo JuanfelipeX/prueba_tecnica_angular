@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pedidos',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidosComponent implements OnInit {
 
-  constructor() { }
+  formulario: any = {};
+
+  constructor(
+    // private HerramientaService: HerramientasService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
+
+  /*
+  ************************************************
+  *              REGISTRAR HERRAMIENTA           *
+  ************************************************
+  */
+  //  registrarHerramientas() {
+  //   this.HerramientaService.crearHerramienta(this.formulario).subscribe({
+  //     next: (data) => {},
+  //     error: (err) => {},
+  //   });
+  // }
 
 }

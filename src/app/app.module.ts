@@ -8,8 +8,6 @@ import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesi
 import { ErrorNoEncontradoComponent } from './components/error-no-encontrado/error-no-encontrado.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HerramientaComponent } from './components/herramienta/herramienta.component';
-import { HerramientaDetallesComponent } from './components/herramienta-detalles/herramienta-detalles.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { TercerosComponent } from './components/terceros/terceros.component';
 
@@ -18,8 +16,6 @@ import { TercerosComponent } from './components/terceros/terceros.component';
     AppComponent,
     IniciarSesionComponent,
     ErrorNoEncontradoComponent,
-    HerramientaComponent,
-    HerramientaDetallesComponent,
     PedidosComponent,
     TercerosComponent,
   ],
