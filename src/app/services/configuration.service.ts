@@ -8,8 +8,8 @@ export class ConfigurationService {
   private URL_WEB: string;
   constructor() {
     /* Configuración de url del servidor Api Rest */
-    this.URL_BASE = 'www.pruebatecnica.com/api/';
-    this.URL_WEB = 'www.pruebatecnica.com/api/';
+    this.URL_BASE = 'http://www.pruebatecnica.com/api/';
+    this.URL_WEB = 'http://www.pruebatecnica.com/api/';
   }
 
   /*-------------------------------------------------------------------------------
