@@ -17,23 +17,11 @@ export class PedidosService {
     this.URL_BASE = this.configuration.getUrlBase();
   }
 
-  crearHerramienta(data: any) {
-    return this.http.post(this.URL_BASE + 'herramientas', data);
+  crearPedido(data: any) {
+    return this.http.post(this.URL_BASE + 'pedidos', data);
   }
 
-  obtenerHerramientas() {
-    return this.http.get<any>(this.URL_BASE + 'herramientas');
-  }
-
-  obtenerHerramientaId(id: any) {
-    return this.http.get<any>(this.URL_BASE + 'herramientas' + '/' + id);
-  }
-
-  editarHerramienta(data: any, id: number) {
-    return this.http.put(this.URL_BASE + 'herramientas' + '/' + id, data);
-  }
-
-  eliminarHerramienta(id: number) {
-    return this.http.delete(this.URL_BASE + 'herramientas' + '/' + id);
+  obtenerPedidos() {
+    return this.http.get<any>(this.URL_BASE + 'pedidos');
   }
 }

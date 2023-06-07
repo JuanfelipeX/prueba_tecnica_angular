@@ -25,7 +25,7 @@ export class IniciarSesionService {
     return this.http.get<any>(this.URL_BASE + 'usuarios');
   }
 
-  obtenerUsuariosCorreo(email: any) {
-    return this.http.get<any>(this.URL_BASE + 'usuario/correo/' + email);
+  login(data: any) {
+    return this.http.post(this.URL_BASE + 'login', data);
   }
 }
