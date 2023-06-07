@@ -33,8 +33,12 @@ export class PedidosComponent implements OnInit {
   */
   registrarPedido() {
     this.pedidosService.crearPedido(this.formulario).subscribe({
-      next: (data) => { },
-      error: (err) => { },
+      next: (data) => { 
+        console.log("Pedido Registrado");
+      },
+      error: (err) => { 
+        console.log("Pedido NO Registrado");
+      },
     });
   }
 
