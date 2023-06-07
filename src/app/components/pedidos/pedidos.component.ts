@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PedidosService } from 'src/app/services/pedidos/pedidos.service';
 
 @Component({
   selector: 'app-pedidos',
@@ -8,26 +9,33 @@ import { Router } from '@angular/router';
 })
 export class PedidosComponent implements OnInit {
 
+  fechaActual = new Date();
+
   formulario: any = {};
 
   constructor(
-    // private HerramientaService: HerramientasService,
+    private pedidosService: PedidosService,
     private router: Router
-  ) { }
+  ) {
+    this.fechaActual = new Date();
+    this.formulario = {
+      fecha_pedido: this.fechaActual,
+    };
+  }
 
   ngOnInit(): void {
   }
 
   /*
   ************************************************
-  *              REGISTRAR HERRAMIENTA           *
+  *              REGISTRAR PEDIDOS               *
   ************************************************
   */
-  //  registrarHerramientas() {
-  //   this.HerramientaService.crearHerramienta(this.formulario).subscribe({
-  //     next: (data) => {},
-  //     error: (err) => {},
-  //   });
-  // }
+  registrarPedido() {
+    this.pedidosService.crearPedido(this.formulario).subscribe({
+      next: (data) => { },
+      error: (err) => { },
+    });
+  }
 
 }

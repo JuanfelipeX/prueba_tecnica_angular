@@ -17,29 +17,16 @@ export class IniciarSesionComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  iniciarSesion() {
-    this.iniciarSesionService
-      .obtenerUsuariosCorreo(this.formulario.email)
-      .subscribe({
-        next: (data) => {
-          const usuario = data.Usuario;
-          if (usuario) {
-            if (this.formulario.contrasena === usuario.contrasena) {
-              console.log('Inicio de sesión exitoso');
-              localStorage.setItem('contrasena', usuario.contrasena);
-              setTimeout(() => {
-                this.router.navigateByUrl('inicio');
-              }, 500);
-            } else {
-              console.log('Contraseña incorrecta');
-            }
-          } else {
-            console.log('Usuario no encontrado');
-          }
-        },
-        error: (err) => {
-          console.log('Error al iniciar sesión', err);
-        },
-      });
+  login() {
+    this.iniciarSesionService.login(this.formulario).subscribe(
+      (response) => {
+        // Lógica para manejar la respuesta exitosa
+        console.log(response);
+      },
+      (error) => {
+        // Lógica para manejar el error
+        console.error(error);
+      }
+    );
   }
 }
