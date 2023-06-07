@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HerramientaComponent } from './components/herramienta/herramienta.component';
 import { HerramientaDetallesComponent } from './components/herramienta-detalles/herramienta-detalles.component';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
+import { TercerosComponent } from './components/terceros/terceros.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { HerramientaDetallesComponent } from './components/herramienta-detalles/
     ErrorNoEncontradoComponent,
     HerramientaComponent,
     HerramientaDetallesComponent,
+    PedidosComponent,
+    TercerosComponent,
   ],
   imports: [
     BrowserModule,
